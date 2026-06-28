@@ -97,8 +97,9 @@ describe('Home page', async()=>{
     it('Should open products details page', async()=>{
         const link = await home.productCard.product('Pliers').getAttribute('href');
         const id = link.split('/').pop();
+        console.log("id: ",id)
         await pages('productDetails').open(id);
-        expect(await pages('productDetails').details.getText()).to.equal('Pliers')
+        expect(await pages('productDetails').details.productTitle.getText()).to.equal('Pliers')
     })
 
     /*it('Should add item to cart', async()=>{
@@ -118,4 +119,21 @@ describe('Home page', async()=>{
         await pages('favorites').favItems.deleteBtn.click()
         expect(pages('favorites').cardTitle).not.to.exist
     })*/
+})
+
+describe('Cart page', async()=>{
+    it('Should change the item quantity', async()=>{
+        await pages('cart').cartItems.productQuantity.setValue(0)
+        //check new quantity
+        //check message
+    })
+    it('Should change the item quantity', async()=>{
+        await pages('cart').cartItems.productQuantity.setValue(100000000000)
+    })
+    it('Should change the item quantity', async()=>{
+        await pages('cart').cartItems.productQuantity.setValue(-1)
+    })
+    it('Should change the item quantity', async()=>{
+        await pages('cart').cartItems.productQuantity.setValue(1)
+    })
 })

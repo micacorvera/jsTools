@@ -7,4 +7,8 @@ export default class CartItems extends BaseComponent {
     get productTitle(){
         return this.rootEl.$('.product-title')
     }
+
+    get productQuantity(){
+        return this.rootEl.$('[data-test="product-quantity"]')
+    }
 }
