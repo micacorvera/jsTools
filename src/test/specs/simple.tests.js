@@ -27,15 +27,14 @@ import {pages} from "../../pageobjects/index"
         );
     })
 
-    /*it('Should register with invalid information', async () => {
+    it('Should register with invalid information', async () => {
         await registration.input('birthDate').setValue('13-06-2005');
         await registration.input('telephone').setValue('John');
         await registration.input('email').setValue('johndoemail.com');
         await registration.input('password').setValue('invalidpass');
         await registration.registerBtn.click();
         expect(await pages('registration').isOpen()).to.be.true;
-    })*/
-    /*
+    })
     it('Should register with valid information', async () => {
         await registration.input('birthDate').setValue('2005-06-13');
         await registration.input('telephone').setValue('1122334455');
@@ -51,8 +50,9 @@ import {pages} from "../../pageobjects/index"
             }
         );
     })
-})*/
-/*
+})
+
+*/
 describe ( 'login page', ()=>{
 
     const loginPage = pages('login');
@@ -61,7 +61,7 @@ describe ( 'login page', ()=>{
         await loginPage.open();
     })
 
-    /*it('Should login with invalid credentials', async ()=>{
+    it('Should login with invalid credentials', async ()=>{
         await logUser.input('email').setValue('johndoe.mail.com')
         await logUser.input('password').setValue('')
         await logUser.loginBtn.click()
@@ -85,7 +85,7 @@ describe ( 'login page', ()=>{
         );
     })
 })
-*/
+
 
 describe('Home page', async()=>{
     const home = pages('home')
@@ -94,22 +94,24 @@ describe('Home page', async()=>{
         await home.open()
     })
 
+    const productDetails = pages('productDetails')
     it('Should open products details page', async()=>{
         const link = await home.productCard.product('Pliers').getAttribute('href');
         const id = link.split('/').pop();
-        console.log("id: ",id)
-        await pages('productDetails').open(id);
-        expect(await pages('productDetails').details.productTitle.getText()).to.equal('Pliers')
+        await productDetails.open(id);
+        const title = await productDetails.details.productTitle.getText()
+        console.log(title)
+        expect(await title).to.equal('Pliers')
     })
-
-    /*it('Should add item to cart', async()=>{
-        await productComponents.addToCartBtn.click()
+    /*
+    it('Should add item to cart', async()=>{
+        await pages('productDetails').details.addToCartBtn.click()
         await pages('cart').open()
         expect(pages('cart').productTitle).to.be('Pliers')
     })
 
     it('Should add item to favorites', async()=>{
-        await productComponents.addToFavsBtn.click()
+        await pages('productDetails').details.addToFavsBtn.click()
         await pages('favorites').open()
         expect(pages('favorites').cardTitle).to.be('Pliers')
     })
@@ -121,19 +123,25 @@ describe('Home page', async()=>{
     })*/
 })
 
-describe('Cart page', async()=>{
+/*describe('Cart page', async()=>{
+    beforeEach(async()=>{
+        pages('cart').open()
+    })
     it('Should change the item quantity', async()=>{
         await pages('cart').cartItems.productQuantity.setValue(0)
-        //check new quantity
-        //check message
+        expect (await pages('cart').cartItems.productQuantity.getValue()).to.equal(1)
     })
     it('Should change the item quantity', async()=>{
         await pages('cart').cartItems.productQuantity.setValue(100000000000)
+        expect (await pages('cart').cartItems.productQuantity.getValue()).to.equal(99)
     })
     it('Should change the item quantity', async()=>{
         await pages('cart').cartItems.productQuantity.setValue(-1)
+        expect (await pages('cart').cartItems.productQuantity.getValue()).to.equal(1)
     })
     it('Should change the item quantity', async()=>{
         await pages('cart').cartItems.productQuantity.setValue(1)
+        expect (await pages('cart').cartItems.productQuantity.getValue()).to.equal(1)
     })
 })
+*/
