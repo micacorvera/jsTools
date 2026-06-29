@@ -1,4 +1,4 @@
-import BaseComponent from "./base.component.js"
+import BaseComponent from "../base.component.js"
 
 export default class RegisterUserComponent extends BaseComponent{
     constructor(){

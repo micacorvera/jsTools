@@ -1,4 +1,4 @@
-import FavoriteItems from "../components/favorite-items.component";
+import FavoriteItems from "../components/favorites/favorite-items.component";
 import CartPage from "./cart.page";
 import FavoritesPage from "./favorites.page";
 import HomePage from "./home.page";

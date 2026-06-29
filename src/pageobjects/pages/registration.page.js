@@ -1,5 +1,5 @@
 import BasePage from "./base.page"
-import {RegisterUserComponent} from "../components";
+import RegisterUserComponent from "../components/user/register-user.component";
 
 export default class RegistrationPage extends BasePage {
     constructor (){

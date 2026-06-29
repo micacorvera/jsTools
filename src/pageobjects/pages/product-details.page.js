@@ -1,4 +1,4 @@
-import ProductDetailsComponents from "../components/product-details.component";
+import ProductDetailsComponents from "../components/home/product-details.component";
 import BasePage from "./base.page"
 
 export default class ProductDetails extends BasePage{

@@ -1,4 +1,4 @@
-import BaseComponent from "./base.component"
+import BaseComponent from "../base.component"
 
 export default class ProductCardComponent extends BaseComponent{
     constructor(){
@@ -10,4 +10,6 @@ export default class ProductCardComponent extends BaseComponent{
         `//a[.//h5[@data-test="product-name" and normalize-space()="${name}"]]`
         );
     }
+
+    
 }

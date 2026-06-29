@@ -1,6 +1,6 @@
 import { $ } from '@wdio/globals'
 import Page from './base.page.js';
-import LogUserComponent from '../components/log-user.component.js';
+import LogUserComponent from '../components/user/log-user.component.js';
 
 /**
  * sub page containing specific selectors and methods for a specific page

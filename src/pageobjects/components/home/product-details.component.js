@@ -1,8 +1,8 @@
-import BaseComponent from "./base.component"
+import BaseComponent from "../base.component"
 
 export default class ProductDetailsComponents extends BaseComponent {
     constructor(){
-        super('.col-md-6')
+        super('.row.my-3')
     }
 
     get productTitle(){
