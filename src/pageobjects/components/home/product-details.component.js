@@ -2,18 +2,18 @@ import BaseComponent from "../base.component"
 
 export default class ProductDetailsComponents extends BaseComponent {
     constructor(){
-        super('.row.my-3')
+        super('//div[@class="row my-3"]')
     }
 
     get productTitle(){
-        return this.rootEl.$('[data-test="product-name"]')
+        return this.rootEl.$('//h1[@data-test="product-name"]')
     }
     
     get addToCartBtn(){
-        return this.rootEl.$('#btn-add-to-cart')
+        return this.rootEl.$('//button[@id="btn-add-to-cart"]')
     }
 
     get addToFavsBtn(){
-        return this.rootEl.$('#btn-add-to-favorites')
+        return this.rootEl.$('//button[@id="btn-add-to-favorites"]')
     }
 }

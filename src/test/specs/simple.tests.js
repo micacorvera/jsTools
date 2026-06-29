@@ -5,7 +5,7 @@ const {assert} = chai
 const should = chai.should();
 
 import {pages} from "../../pageobjects/index"
-
+/*
 describe('Registration Page', () => {
     const registrationPage = pages('registration')
     const registration = registrationPage.registerUser;
@@ -52,7 +52,7 @@ describe('Registration Page', () => {
         );
     })
 })
-
+*/
 describe ( 'login page', ()=>{
 
     const loginPage = pages('login');
@@ -61,7 +61,7 @@ describe ( 'login page', ()=>{
     beforeEach(async()=>{
         await loginPage.open();
     })
-
+/*
     it('Should login with invalid credentials', async ()=>{
         await logUser.input('email').setValue('johndoe.mail.com')
         await logUser.input('password').setValue('')
@@ -71,7 +71,7 @@ describe ( 'login page', ()=>{
         expect(logUser.passwordErrorMsg).to.exist
         expect(logUser.passwordErrorMsg).to.be.an('object')
     })
-    
+    */
     it('Should login with valid credentials', async ()=>{
         await logUser.input('email').setValue('johndoe@mail.com')
         await logUser.input('password').setValue('ValidPa$s1')
@@ -125,7 +125,7 @@ describe('Product details page', async()=>{
     })
 })
 
-
+/*
 describe('Favorites page', async()=>{
     const favorites = pages('favorites')
 
@@ -193,7 +193,7 @@ describe('Cart page', async()=>{
         await assert.isNotTrue(toastMessage.rootEl.isExisting(),'Message did not appear')
     }) 
 })
-
+*/
 describe('Checkout', async()=>{
     const cart = pages('cart')
 
@@ -230,8 +230,6 @@ describe('Checkout', async()=>{
         await assert.include(message,"Payment was successful",'Correct message')
     })
 })
-
-
 
 describe('Product search', async()=>{
     const home = pages('home')

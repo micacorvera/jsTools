@@ -2,7 +2,7 @@ import BaseComponent from "../base.component"
 
 export default class ProductCardComponent extends BaseComponent{
     constructor(){
-        super('.container')
+        super('//div[@class="container"]')
     }
 
     product(name) {

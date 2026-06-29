@@ -2,25 +2,25 @@ import BaseComponent from "../base.component"
 
 export default class LogUserComponent extends BaseComponent{
     constructor(){
-        super('[data-test="login-form"]')
+        super('//form[@data-test="login-form"]')
     }
 
     get loginBtn(){
-        return this.rootEl.$('.btnSubmit')
+        return this.rootEl.$('//input[@class="btnSubmit"]')
     }
 
     get emailErrorMsg(){
-        return this.rootEl.$('#email-error')
+        return this.rootEl.$('//div[@id="email-error"]')
     }
 
     get passwordErrorMsg(){
-        return this.rootEl.$('#password-error')
+        return this.rootEl.$('//div[@id="password-error"]')
     }
 
     input(name){
         const selectors = {
-            email:'#email',
-            password:'#password'
+            email:'//input[@id="email"]',
+            password:'//input[@id="password"]'
         }
         const selector = selectors[name];
 

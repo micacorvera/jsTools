@@ -2,16 +2,16 @@ import BaseComponent from "../base.component"
 
 export default class PaymentComponent extends BaseComponent{
     constructor(){
-        super('.login-form-1:has(#payment-method)')
+        super('//div[contains(@class, "login-form-1") and .//select[@id="payment-method"]]')
     }
 
     input(name){
         const selectors ={
-            method: '#payment-method',
-            cardNumber: '#credit_card_number',
-            expiration: '#expiration_date',
-            cvv: '#cvv',
-            name: '#card_holder_name'
+            method: '//select[@id="payment-method"]',
+            cardNumber: '//input[@id="credit_card_number"]',
+            expiration: '//input[@id="expiration_date"]',
+            cvv: '//input[@id="cvv"]',
+            name: '//input[@id="card_holder_name"]'
         }
         const selector = selectors[name]
         if (selector === undefined) {
@@ -21,18 +21,18 @@ export default class PaymentComponent extends BaseComponent{
     }
 
     get finishBtn(){
-        return this.rootEl.$('[data-test="finish"]')
+        return this.rootEl.$('//button[@data-test="finish"]')
     }
 
     get alert(){
-        return this.rootEl.$('.alert.alert-danger.ng-star-inserted')
+        return this.rootEl.$('//div[@class="alert-danger"]')
     }
 
     get errorMsg(){
-        return this.rootEl.$('[data-test="payment-error-message"]')
+        return this.rootEl.$('//div[@data-test="payment-error-message"]')
     }
 
     get successMsg(){
-        return this.rootEl.$('[data-test="payment-success-message"]')
+        return this.rootEl.$('//div[@data-test="payment-success-message"]')
     }
 }
